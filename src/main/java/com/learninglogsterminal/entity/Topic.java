@@ -1,11 +1,7 @@
 package com.learninglogsterminal.entity;
 
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.Scanner;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+
 /**
  * ╔══════════════════════════════════════════════════════╗
  * ║           QUEST: Build the Topic Entity              ║
@@ -22,78 +18,120 @@ import java.time.format.DateTimeFormatter;
  *   - updatedAt  (LocalDateTime)  → when it was last updated
  */
 public class Topic {
-    int id;
-    String name;
-    String createdAt;
 
-    Topic(int id, String name) {
+    // ============================================================
+    // TODO 1: Declare the fields (+10 XP each = 40 XP)
+    // ============================================================
+    // Declare these private fields:
+
+    //   - int id
+    //   - String name
+    //   - LocalDateTime createdAt
+    //   - LocalDateTime updatedAt
+    //
+    // Hint: private int id;
+    private int id;
+    private String name;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
+    // ============================================================
+
+    // ============================================================
+    // TODO 2: Create the constructor (+20 XP)
+    // ============================================================
+    // Create a constructor that takes (int id, String name)
+
+    public Topic(int id, String name) {
         this.id = id;
         this.name = name;
-        DateTimeFormatter DT = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss");
-        this.createdAt = LocalDateTime.now().format(DT);
-
-
-        // ============================================================
-        // TODO 1: Declare the fields (+10 XP each = 40 XP)
-        // ============================================================
-        // Declare these private fields:
-        //   - int id
-        //   - String name
-        //   - LocalDateTime createdAt
-        //   - LocalDateTime updatedAt
-        //
-        // Hint: private int id;
-        // ============================================================
-
-
-        // ============================================================
-        // TODO 2: Create the constructor (+20 XP)
-        // ============================================================
-        // Create a constructor that takes (int id, String name)
-        // Inside the constructor:
-        //   - Set this.id = id
-        //   - Set this.name = name
-        //   - Store LocalDateTime.now() in a variable first
-        //   - Set this.createdAt and this.updatedAt to that variable
-        //
-        // Hint:
-        //   public Topic(int id, String name) {
-        //       this.id = id;
-        //       this.name = name;
-        //       LocalDateTime now = LocalDateTime.now();
-        //       this.createdAt = now;
-        //       this.updatedAt = now;
-        //   }
-        // ============================================================
-
-
-        // ============================================================
-        // TODO 3: Create getters and setters (+30 XP)
-        // ============================================================
-        // Create these methods:
-        //   - getId()        → returns id
-        //   - getName()      → returns name
-        //   - getCreatedAt() → returns createdAt
-        //   - getUpdatedAt() → returns updatedAt
-        //   - setName(String name) → sets name AND updates updatedAt
-        //
-        // Hint for setName:
-        //   public void setName(String name) {
-        //       this.name = name;
-        //       this.updatedAt = LocalDateTime.now();
-        //   }
-        // ============================================================
-
-
-        // ============================================================
-        // TODO 4: Override toString() (+20 XP — ACHIEVEMENT: Architect!)
-        // ============================================================
-        // Return a readable string like:
-        //   "[1] Java Basics (Created: 2025-02-18T10:30:00)"
-        //
-        // Hint: return "[" + id + "] " + name + " (Created: " + createdAt + ")";
-        // ============================================================
-
-
+        LocalDateTime now = LocalDateTime.now();
+        this.createdAt = now;
+        this.updatedAt = now;
     }
+
+
+    // Inside the constructor:
+    //   - Set this.id = id
+    //   - Set this.name = name
+    //   - Store LocalDateTime.now() in a variable first
+    //   - Set this.createdAt and this.updatedAt to that variable
+    //
+    // Hint:
+    //   public Topic(int id, String name) {
+    //       this.id = id;
+    //       this.name = name;
+    //       LocalDateTime now = LocalDateTime.now();
+    //       this.createdAt = now;
+    //       this.updatedAt = now;
+    //   }
+    // ============================================================
+
+
+
+    // ============================================================
+    // TODO 3: Create getters and setters (+30 XP)
+    // ============================================================
+    // Create these methods:
+    //   - getId()        → returns id
+    //   - getName()      → returns name
+    //   - getCreatedAt() → returns createdAt
+    //   - getUpdatedAt() → returns updatedAt
+    //   - setName(String name) → sets name AND updates updatedAt
+    //
+    // Hint for setName:
+    //   public void setName(String name) {
+    //       this.name = name;
+    //       this.updatedAt = LocalDateTime.now();
+    //   }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    // ============================================================
+
+
+
+    // ============================================================
+    // TODO 4: Override toString() (+20 XP — ACHIEVEMENT: Architect!)
+    // ============================================================
+    // Return a readable string like:
+    //   "[1] Java Basics (Created: 2025-02-18T10:30:00)"
+    //
+    // Hint: return "[" + id + "] " + name + " (Created: " + createdAt + ")";
+    @Override
+    public String toString(){
+        return  id +" "+name+" Created: "+ createdAt;
+    }
+    // ============================================================
+
+
 }
